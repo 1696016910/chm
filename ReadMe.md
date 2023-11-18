@@ -7,7 +7,7 @@
 
 ## 注意事项
 
-套上warp可绕过chromego封锁的网站
+套上warp可绕过chromego封锁的网站11
 
 ## 如何修改为自己的warp节点
 

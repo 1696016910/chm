@@ -25,6 +25,17 @@ dns:
     ipcidr:
     - 240.0.0.0/4
 proxies:
+- name: meta_hysteria2_01
+  type: hysteria2
+  server: 109.104.152.219
+  port: 22309
+  password: dongtaiwang.com
+  alpn:
+  - h3
+  sni: bing.com
+  skip-cert-verify: true
+  up: 100 Mbps
+  down: 100 Mbps
 - name: meta_hysteria_02
   type: hysteria
   server: 167.160.90.251

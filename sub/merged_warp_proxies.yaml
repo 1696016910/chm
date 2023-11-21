@@ -293,6 +293,13 @@ proxy-groups:
   interval: 300
   strategy: round-robin
 rules:
+- DOMAIN-KEYWORD,xinminghui,DIRECT
+- DOMAIN-KEYWORD,eainger,DIRECT
+- DOMAIN-KEYWORD,jihuafanghu,DIRECT
+- DOMAIN-SUFFIX,d,DIRECT
+- DOMAIN-SUFFIX,s,DIRECT
+- DOMAIN-SUFFIX,y,DIRECT
+- IP-CIDR,172.178.0.0/16,DIRECT,no-resolve
 - DOMAIN,clash.razord.top,DIRECT
 - DOMAIN,yacd.haishan.me,DIRECT
 - GEOIP,LAN,DIRECT

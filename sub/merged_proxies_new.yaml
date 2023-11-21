@@ -296,6 +296,13 @@ proxy-groups:
   - hysteria2_2
   - hysteria2_3
 rules:
+- DOMAIN-KEYWORD,xinminghui,DIRECT
+- DOMAIN-KEYWORD,eainger,DIRECT
+- DOMAIN-KEYWORD,jihuafanghu,DIRECT
+- DOMAIN-SUFFIX,d,DIRECT
+- DOMAIN-SUFFIX,s,DIRECT
+- DOMAIN-SUFFIX,y,DIRECT
+- IP-CIDR,172.178.0.0/16,DIRECT,no-resolve
 - DOMAIN,clash.razord.top,DIRECT
 - DOMAIN,yacd.haishan.me,DIRECT
 - GEOIP,LAN,DIRECT

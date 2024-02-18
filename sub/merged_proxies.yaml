@@ -25,6 +25,35 @@ dns:
     ipcidr:
     - 240.0.0.0/4
 proxies:
+- name: meta_vmess_11
+  type: vmess
+  server: 23.227.38.220
+  port: 443
+  cipher: auto
+  uuid: e6b124d8-7a82-463d-b360-a3a3a19f7dc2
+  alterId: 0
+  tls: true
+  skip-cert-verify: true
+  servername: photographs-encouraged-orientation-do.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: e6b124d8-7a82-463d-b360-a3a3a19f7dc2-vm
+    headers:
+      host: photographs-encouraged-orientation-do.trycloudflare.com
+- name: meta_tuic_41
+  server: 108.181.5.131
+  port: 21167
+  type: tuic
+  uuid: e6b124d8-7a82-463d-b360-a3a3a19f7dc2
+  password: e6b124d8-7a82-463d-b360-a3a3a19f7dc2
+  alpn:
+  - h3
+  disable-sni: true
+  reduce-rtt: true
+  udp-relay-mode: native
+  congestion-controller: bbr
+  sni: www.bing.com
+  skip-cert-verify: true
 - name: meta_vless_51
   type: vless
   server: 198.41.193.226
@@ -1782,6 +1811,8 @@ proxy-groups:
   proxies:
   - 自动选择
   - DIRECT
+  - meta_vmess_11
+  - meta_tuic_41
   - meta_vless_51
   - meta_vless_52
   - meta_vless_53
@@ -1933,6 +1964,8 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
+  - meta_vmess_11
+  - meta_tuic_41
   - meta_vless_51
   - meta_vless_52
   - meta_vless_53

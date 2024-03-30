@@ -262,8 +262,7 @@ process_urls('./urls/hysteria_urls.txt', process_hysteria)
 
 # # 处理 xray URLs 错误
 # process_urls('./urls/xray_urls.txt', process_xray)
-
-print("节点数量: " + merged_proxies.count)
+print(f'节点数量 {len(merged_proxies)}')
 
 # 读取普通的配置文件内容
 with open('./templates/clash_template.yaml', 'r', encoding='utf-8') as file:

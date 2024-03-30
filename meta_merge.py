@@ -2,6 +2,7 @@ import yaml
 import json
 import urllib.request
 import logging
+from datetime import datetime
 
 # 提取节点
 def process_urls(url_file, processor):
@@ -250,17 +251,19 @@ merged_proxies = []
 # 处理 clash URLs
 process_urls('./urls/clash_urls.txt', process_clash)
 
-# 处理 shadowtls URLs
-process_urls('./urls/sb_urls.txt', process_sb)
+# # 处理 shadowtls URLs 错误
+# process_urls('./urls/sb_urls.txt', process_sb)
 
-# 处理 hysteria URLs
+# # 处理 hysteria URLs
 process_urls('./urls/hysteria_urls.txt', process_hysteria)
 
-# 处理 hysteria2 URLs
-process_urls('./urls/hysteria2_urls.txt', process_hysteria2)
+# # 处理 hysteria2 URLs 错误
+# process_urls('./urls/hysteria2_urls.txt', process_hysteria2)
 
-# 处理 xray URLs
-process_urls('./urls/xray_urls.txt', process_xray)
+# # 处理 xray URLs 错误
+# process_urls('./urls/xray_urls.txt', process_xray)
+
+print("节点数量: " + merged_proxies.count)
 
 # 读取普通的配置文件内容
 with open('./templates/clash_template.yaml', 'r', encoding='utf-8') as file:
@@ -293,58 +296,11 @@ with open('./sub/merged_proxies_new.yaml', 'w', encoding='utf-8') as file:
 with open('./sub/merged_warp_proxies_new.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(config_warp_data, file, sort_keys=False, allow_unicode=True)
 
-print("聚合完成")
-
-
-
-
-# 不包含hysteria2-以后删除
-merged_proxies = []
-
-# 处理 clash URLs
-process_urls('./urls/clash_urls.txt', process_clash_old)
-
-# 处理 shadowtls URLs
-process_urls('./urls/sb_urls.txt', process_sb)
-
-# 处理 hysteria URLs
-process_urls('./urls/hysteria_urls.txt', process_hysteria)
-
-# 处理 hysteria2 URLs
-#process_urls('./urls/hysteria2_urls.txt', process_hysteria2)
-
-# 处理 xray URLs
-process_urls('./urls/xray_urls.txt', process_xray)
-
-# 读取普通的配置文件内容
-with open('./templates/clash_template.yaml', 'r', encoding='utf-8') as file:
-    config_data = yaml.safe_load(file)
-
-# 读取warp配置文件内容
-with open('./templates/clash_warp_template.yaml', 'r', encoding='utf-8') as file:
-    config_warp_data = yaml.safe_load(file)
-
-# 添加合并后的代理到proxies部分
-# 添加合并后的代理到proxies部分
-if 'proxies' not in config_data or not config_data['proxies']:
-    config_data['proxies'] = merged_proxies
-else:
-    config_data['proxies'].extend(merged_proxies)
-
-if 'proxies' not in config_warp_data or not config_warp_data['proxies']:
-    config_warp_data['proxies'] = merged_proxies
-else:
-    config_warp_data['proxies'].extend(merged_proxies)
-
-# 更新自动选择和节点选择的proxies的name部分
-update_proxy_groups(config_data, merged_proxies)
-update_warp_proxy_groups(config_warp_data, merged_proxies)
-
-# 将更新后的数据写入到一个YAML文件中，并指定编码格式为UTF-8
-with open('./sub/merged_proxies.yaml', 'w', encoding='utf-8') as file:
-    yaml.dump(config_data, file, sort_keys=False, allow_unicode=True)
-
-with open('./sub/merged_warp_proxies.yaml', 'w', encoding='utf-8') as file:
-    yaml.dump(config_warp_data, file, sort_keys=False, allow_unicode=True)
+with open("./sub/update.txt", "w") as encoded_file:
+    # 获取当前时间
+    now = datetime.now()
+    # 将时间转换为字符串
+    now_str = now.strftime('%Y-%m-%d %H:%M:%S')
+    encoded_file.write(now_str)
 
 print("聚合完成")

@@ -25,21 +25,15 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 proxies:
-
   - name: WARP
-    type: vless
-    server: 104.16.99.21  # 这个地方更换成自己优化的Ip 使用优选工具 104.16.2.165  172.67.148.96
-    port: 443
-    uuid: 680220b1-b0be-4cb8-8438-cd4da92a0296
-    network: ws
-    tls: true
-    udp: false
-    sni: vls.goufugui.link
-    client-fingerprint: chrome
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        host: vls.goufugui.link
+    type: wireguard
+    server: engage.cloudflareclient.com
+    port: 2408
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:868f:9ded:8842:c57d:58ac
+    private-key: QIvNm0aDxipxs/FBYsZsXLMv4d/toiUQX5dCNzq09Ho=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    udp: true
     reserved: [0,0,0]
     remote-dns-resolve: true  
     dns: [ 1.1.1.1, 8.8.8.8 ]

@@ -4187,7 +4187,7 @@ proxy-groups:
   interval: 300
   strategy: round-robin
 rules:
-- DOMAIN-KEYWORD,bing,节点选择
+- DOMAIN-KEYWORD,bing,DIRECT
 - DOMAIN-KEYWORD,xinminghui,DIRECT
 - DOMAIN-KEYWORD,eainger,DIRECT
 - DOMAIN-KEYWORD,jihuafanghu,DIRECT

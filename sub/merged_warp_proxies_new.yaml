@@ -4183,6 +4183,7 @@ proxy-groups:
   strategy: round-robin
 rules:
 - DOMAIN-KEYWORD,bing,DIRECT
+- DOMAIN-KEYWORD,bilibili,DIRECT
 - DOMAIN-KEYWORD,xinminghui,DIRECT
 - DOMAIN-KEYWORD,eainger,DIRECT
 - DOMAIN-KEYWORD,jihuafanghu,DIRECT
